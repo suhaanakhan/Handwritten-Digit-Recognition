@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Handwritten Digit Recognition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .flex-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            margin: 10px;
+            text-align: center;
+        }
+
+        canvas {
+            border: 3px solid #000;
+            border-radius: 10px;
+            background-color: #fff;
+            cursor: crosshair;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #357ae8;
+        }
+
+        .prediction-box {
+            border: 3px solid #000;
+            border-radius: 10px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 5rem;
+            font-weight: bold;
+        }
+
+        #prob {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        #probGraph {
+            margin-top: 10px;
+            border: 3px solid #000;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="heading">Handwritten Digit Recognition</h1>
+        <div class="flex-container">
+            <div class="item">
+                <canvas id="inputimg" width="196" height="196"></canvas>
+                <button id="clearbtn">Clear</button>
+            </div>
+            <div class="item">
+                <div class="prediction-box" id="pred">0</div>
+                <div id="prob">Probability: </div>
+            </div>
+            <div class="item">
+                <svg id="probGraph" width="250" height="196"></svg>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+</body>
+
+</html>
